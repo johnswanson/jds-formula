@@ -20,7 +20,8 @@
 										 color-theme-solarized
 										 zenburn-theme
 										 tramp
-										 column-marker))
+										 column-marker
+										 yaml-mode))
 
 (setq auto-save-default nil)
 (setq make-backup-files nil)
@@ -41,6 +42,8 @@
 ; list the repositories containing them
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(add-to-list 'auto-mode-alist '("\\.sls$" . yaml-mode))
 
 ; activate all the packages (in particular autoloads)
 (package-initialize)
@@ -187,13 +190,8 @@
 
 (defvar my-linum-format-string "%3d")
 
+(global-set-key (kbd "RET") 'newline-and-indent)
 (add-hook 'linum-before-numbering-hook 'my-linum-get-format-string)
-(add-hook 'lisp-mode-hook '(lambda ()
-														 (local-set-key (kbd "RET") 'newline-and-indent)))
-(add-hook 'scheme-mode-hook '(lambda ()
-															 (local-set-key (kbd "RET") 'newline-and-indent)))
-(add-hook 'clojure-mode-hook '(lambda ()
-																(local-set-key (kbd "RET") 'newline-and-indent)))
 (add-hook 'clojure-mode-hook '(lambda ()
 																(interactive) (column-marker-1 80)))
 
