@@ -16,6 +16,7 @@ jds:
     - shell: /bin/zsh
     - gid_from_name: True
     - require:
+      - file: /home/jds
       - pkg: zsh
 
 /home/jds/.tmux.conf:
@@ -26,6 +27,12 @@ jds:
     - source: salt://jds/tmux.conf
     - require:
       - user: jds
+
+/home/jds:
+  file.directory:
+    - user: jds
+    - group: jds
+    - mode: 0700
 
 /home/jds/.ssh:
   file.directory:
@@ -43,7 +50,7 @@ jds:
       - user: jds
       - pkg: git
 
-/home/jds/zshrc:
+/home/jds/.zshrc:
   file.managed:
     - user: jds
     - group: jds
