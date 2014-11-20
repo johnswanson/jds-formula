@@ -1,3 +1,12 @@
+vim:
+  pkg.installed
+
+zsh:
+  pkg.installed
+
+tmux:
+  pkg.installed
+
 jds:
   user.present:
     - home: /home/jds
@@ -47,6 +56,10 @@ https://github.com/johnswanson/oh-my-zsh:
     - rev: master
     - target: /home/jds/.oh-my-zsh
     - force: True
+    - require:
+      - user: jds
+      - pkg: git
+      - pkg: zsh
 
 /home/jds/.vimrc:
   file.managed:
