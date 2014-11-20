@@ -39,8 +39,15 @@ jds:
     - source: salt://jds/emacs.d/init.el
     - require:
       - user: jds
+      - file: /home/jds/.emacs.d
 
 /home/jds:
+  file.directory:
+    - user: jds
+    - group: jds
+    - mode: 0700
+
+/home/jds/.emacs.d:
   file.directory:
     - user: jds
     - group: jds
