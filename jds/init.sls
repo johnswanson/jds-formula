@@ -7,6 +7,9 @@ zsh:
 tmux:
   pkg.installed
 
+git:
+  pkg.installed
+
 jds:
   user.present:
     - home: /home/jds
