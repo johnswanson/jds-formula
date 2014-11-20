@@ -10,6 +10,9 @@ tmux:
 git:
   pkg.installed
 
+emacs:
+  pkg.installed
+
 jds:
   user.present:
     - home: /home/jds
@@ -25,6 +28,15 @@ jds:
     - group: jds
     - mode: 0600
     - source: salt://jds/tmux.conf
+    - require:
+      - user: jds
+
+/home/jds/.emacs.d/init.el:
+  file.managed:
+    - user: jds
+    - group: jds
+    - mode: 0600
+    - source: salt://jds/emacs.d/init.el
     - require:
       - user: jds
 
