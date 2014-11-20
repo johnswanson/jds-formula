@@ -1,3 +1,6 @@
+include:
+  - sudoers
+
 vim:
   pkg.installed
 
@@ -16,11 +19,13 @@ emacs:
 jds:
   user.present:
     - home: /home/jds
+    - password: $6$fihDz2vX$P0KhbDKaUI0wD2l/iTNSdcyjttqMHKw7pA3.6HU.oXeQ3vQ1786Cnp2MrgrK8noLk66WX5w.tBqc.bjC0eFn20
     - shell: /bin/zsh
     - gid_from_name: True
     - require:
       - file: /home/jds
       - pkg: zsh
+      - sls: sudoers
 
 /home/jds/.tmux.conf:
   file.managed:
