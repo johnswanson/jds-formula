@@ -21,7 +21,8 @@
 										 zenburn-theme
 										 tramp
 										 column-marker
-										 yaml-mode))
+										 yaml-mode
+										 nginx-mode))
 
 (setq auto-save-default nil)
 (setq make-backup-files nil)

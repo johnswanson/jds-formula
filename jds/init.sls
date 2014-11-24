@@ -23,7 +23,6 @@ jds:
     - shell: /bin/zsh
     - gid_from_name: True
     - require:
-      - file: /home/jds
       - pkg: zsh
       - sls: sudoers
 
@@ -51,6 +50,8 @@ jds:
     - user: jds
     - group: jds
     - mode: 0700
+    - require:
+      - user: jds
 
 /home/jds/.emacs.d:
   file.directory:
